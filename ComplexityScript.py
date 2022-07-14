@@ -10,8 +10,6 @@ with open("YourFilepath") as json_data:
 full_dataset = pd.DataFrame(data['_notes'])
 full_dataset['_yCenter'] = full_dataset.loc[:, ('_lineLayer')].apply(lambda x: 1 + x * 0.55)
 full_dataset['_xCenter'] = full_dataset.loc[:, ('_lineIndex')].apply(lambda x: -0.9 + x * 0.6)
-full_dataset['_xMovement'] = full_dataset.loc[:, ['_xCenter']].diff()
-full_dataset['_yMovement'] = full_dataset.loc[:, ['_yCenter']].diff()
 left = (full_dataset[full_dataset['_type'] == 0]) #All left handed notes
 right = (full_dataset[full_dataset['_type'] == 1]) #All right handed notes
 
